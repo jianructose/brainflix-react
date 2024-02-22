@@ -1,2 +1,25 @@
+.header {
+}
 
+.nav {
+  &__logo {
+  }
 
+  &__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__search-box {
+  }
+
+  &__user-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }
+
+  &__upload-button {
+  }
+}

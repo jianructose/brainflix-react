@@ -1,11 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from "../src/components/Header/Header"; 
+import "./App.scss";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <Header /> 
-
+    // header component
+    <Header />
   );
 }
 
