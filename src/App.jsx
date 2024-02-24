@@ -1,11 +1,11 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
-import { useState } from "react";
-import videoData from "./data/video-details.json";
 import CurrVideo from "./components/CurrVideo/CurrVideo";
 import Comments from "./components/Comments/Comments";
 import SideVideos from "./components/SideVideos/SideVideos";
+import { useState } from "react";
+import videoData from "./data/video-details.json";
 
 function App() {
   const [currVideo, setCurrVideo] = useState(videoData[0]);
@@ -17,7 +17,7 @@ function App() {
   );
 
   return (
-    <main>
+    <main className="App">
       {/* header component */}
       <Header />
 
@@ -26,7 +26,7 @@ function App() {
       {/* main video info component */}
       <CurrVideo currVideo={currVideo} />
       {/* comments component */}
-      {/* <Comments currVideo={currVideo} /> */}
+      <Comments currVideo={currVideo} />
       {/* video list component */}
       {/* <SideVideos sideVideos={filteredVideoList} /> */}
     </main>

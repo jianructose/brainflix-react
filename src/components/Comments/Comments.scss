@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: row;
+
+  &__input-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.comments {
+  &__count {
+  }
+
+  &__list {
+    list-style: none; // Remove bullets
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__avatar {
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
