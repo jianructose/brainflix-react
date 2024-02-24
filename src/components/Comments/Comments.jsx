@@ -1,4 +1,6 @@
 import "./Comments.scss";
+import userAvatar from "../../assets/images/Mohan-muruge.jpg";
+
 
 function Comments(props) {
   // length of comments
@@ -13,7 +15,8 @@ function Comments(props) {
 
       <form className="form">
         {/* form avatar */}
-        <img src="" alt="user avatar" className="form__avatar" />
+        <img src={userAvatar}
+        alt="user avatar" className="form__avatar" />
         {/* form input */}
         <div className="form__input-container">
           {/* form label */}
