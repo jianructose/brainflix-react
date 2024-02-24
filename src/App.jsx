@@ -11,10 +11,12 @@ function App() {
   const [currVideo, setCurrVideo] = useState(videoData[0]);
 
   const [videoList, setVideoList] = useState(videoData);
+  console.log("videoList", videoList);
 
-  const filteredVideoList = videoList.filter(
-    (video) => video.id !== currVideo.id
-  );
+  function handleVideoClick(id) {
+    const newCurrVideo = videoList.find((video) => video.id === id);
+    setCurrVideo(newCurrVideo);
+  }
 
   return (
     <main className="App">
@@ -23,12 +25,19 @@ function App() {
 
       {/* hero component */}
       <Hero currVideo={currVideo} />
+
       {/* main video info component */}
       <CurrVideo currVideo={currVideo} />
+
       {/* comments component */}
       <Comments currVideo={currVideo} />
+
       {/* video list component */}
-      {/* <SideVideos sideVideos={filteredVideoList} /> */}
+      <SideVideos
+        sideVideos={videoList}
+        currVideo={currVideo}
+        handleVideoClick={handleVideoClick}
+      />
     </main>
   );
 }

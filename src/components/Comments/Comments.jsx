@@ -2,7 +2,6 @@ import "./Comments.scss";
 
 function Comments(props) {
   // length of comments
-  console.log("Comments props", { props });
   return (
     // comments section
     <section className="comments">
@@ -31,6 +30,9 @@ function Comments(props) {
         </div>
       </form>
 
+      {/* a divider */}
+      <div className="divider"></div>
+
       {/* display comments list */}
 
       {props.currVideo.comments.map((comment) => {
@@ -54,6 +56,7 @@ function Comments(props) {
                 <p className="comments__text">{comment.comment}</p>
               </div>
             </li>
+            <div className="divider"></div>
           </ul>
         );
       })}

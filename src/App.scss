@@ -1,5 +1,6 @@
 @use "./styles/partials/typography" as *;
 @use "./styles/partials/variables" as *;
+@use "./styles/partials/mixins" as *;
 
 * {
   margin: 0;
@@ -17,4 +18,8 @@ code {
 }
 
 .App {
+}
+
+.divider {
+  border-bottom: 2px solid $mercury;
 }

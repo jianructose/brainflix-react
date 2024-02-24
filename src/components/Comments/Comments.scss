@@ -1,3 +1,4 @@
+@use "../../styles/partials/variables" as *;
 .form {
   display: flex;
   flex-direction: row;
@@ -5,6 +6,34 @@
   &__input-container {
     display: flex;
     flex-direction: column;
+  }
+
+  &__avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }
+  &__label {
+  }
+
+  &__input {
+    border: 1px solid $bf-blue;
+  }
+
+  &__button {
+    background-color: $bf-blue;
+    color: $white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    background-image: url("../../assets/icons/add_comment.svg");
+    background-repeat: no-repeat;
+    background-position: left 0.5rem center;
+
+    &:hover {
+      background-color: $bf-dark-blue;
+    }
   }
 }
 

@@ -1,0 +1,31 @@
+.side-videos {
+  &__title {
+  }
+
+  &__list {
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  &__thumbnail {
+    width: 8rem;
+    border-radius: 10%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__info-title {
+  }
+
+  &__info-channel {
+  }
+}

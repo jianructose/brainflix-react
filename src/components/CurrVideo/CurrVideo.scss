@@ -1,0 +1,26 @@
+.curr-video {
+  &__title {
+  }
+
+  &__info-stats-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__info {
+  }
+
+  &__stats {
+  }
+
+  &__views {
+    display: flex;
+  }
+
+  &__likes {
+    display: flex;
+  }
+
+  &__description {
+    padding: 1rem 0;
+  }
+}
