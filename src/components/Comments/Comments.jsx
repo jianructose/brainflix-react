@@ -1,6 +1,6 @@
 import "./Comments.scss";
 import userAvatar from "../../assets/images/Mohan-muruge.jpg";
-
+import { formatDistanceToNow } from "date-fns";
 
 function Comments(props) {
   // length of comments
@@ -15,19 +15,21 @@ function Comments(props) {
 
       <form className="form">
         {/* form avatar */}
-        <img src={userAvatar}
-        alt="user avatar" className="form__avatar" />
-        {/* form input */}
-        <div className="form__input-container">
-          {/* form label */}
-          <label htmlFor="comment" className="form__label">
-            JOIN THE CONVERSATION
-          </label>
+        <img src={userAvatar} alt="user avatar" className="form__avatar" />
 
-          <textarea
-            className="form__input"
-            placeholder="Add a new comment"
-          ></textarea>
+        <div className="form__input-container">
+          <div className="form__input-top">
+            {/* form label */}
+            <label htmlFor="comment" className="form__label">
+              JOIN THE CONVERSATION
+            </label>
+            {/* form input */}
+            <textarea
+              className="form__input"
+              placeholder="Add a new comment"
+            ></textarea>
+          </div>
+
           {/* form button */}
           <button className="form__button">COMMENT</button>
         </div>
@@ -48,11 +50,9 @@ function Comments(props) {
                   <h5 className="comments__name">{comment.name}</h5>
                   <p className="comments__date">
                     {/* format timestamp */}
-                    {new Date(comment.timestamp).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
-                    })}
+                    {formatDistanceToNow(new Date(comment.timestamp), {
+                      addSuffix: true,
+                    })}{" "}
                   </p>
                 </div>
                 {/* comment text*/}

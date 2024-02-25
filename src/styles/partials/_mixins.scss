@@ -1,0 +1,17 @@
+// add responsive design breakpoints
+@use "variables" as *;
+
+// mixin for only 2 breakpoints
+@mixin tablet {
+  // when screen width >= 768px
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  // when screen width >= 1024px
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
