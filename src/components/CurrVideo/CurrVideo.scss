@@ -1,26 +1,78 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
 .curr-video {
-  &__title {
+  padding: 1rem;
+  color: $bf-black;
+
+  @include tablet {
+    padding: 2rem 3rem;
   }
 
+  &__title {
+    padding-bottom: 1rem;
+
+    @include videoHeader;
+
+    @include tablet {
+      @include videoHeader(2.5rem, 2.75rem, 700);
+    }
+  }
+
+  &__divider {
+    border-bottom: 1px solid $mercury;
+
+    @include tablet {
+      display: none;
+    }
+  }
   &__info-stats-wrapper {
     display: flex;
     justify-content: space-between;
-  }
-  &__info {
-  }
+    padding: 1rem 0;
+    gap: 2rem;
 
+    @include tablet {
+    }
+  }
+  &__info,
   &__stats {
-  }
-
-  &__views {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+  &__channel {
+    @include videoChannelText;
+
+    @include tablet {
+      @include videoChannelText(1.25rem, 1rem, 600);
+    }
   }
 
+  &__date {
+    color: $silver;
+  }
+  &__stats {
+    padding-right: 3rem;
+  }
+
+  &__views,
   &__likes {
     display: flex;
+    color: $silver;
+    gap: 0.5rem;
   }
 
   &__description {
     padding: 1rem 0;
+
+    @include bodyText(1.15rem, 1.5rem, 400);
   }
 }

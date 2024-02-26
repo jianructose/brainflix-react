@@ -26,8 +26,20 @@
   font-weight: $fontWeight;
 }
 
+@mixin bodyText($textSize: 0.85rem, $lineHeight: 1.15rem, $fontWeight: 400) {
+  font-size: $textSize;
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
 
-@mixin bodyText ($textSize: 0.85rem, $lineHeight: 1.15rem, $fontWeight: 400) {
+@mixin videoHeader($textSize: 2.1rem, $lineHeight: 2.75rem, $fontWeight: 700) {
+  font-size: $textSize;
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
+
+// video channel
+@mixin videoChannelText($textSize: 1rem, $lineHeight: 1rem, $fontWeight: 600) {
   font-size: $textSize;
   line-height: $lineHeight;
   font-weight: $fontWeight;
