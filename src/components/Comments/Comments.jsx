@@ -42,9 +42,9 @@ function Comments(props) {
 
       {props.currVideo.comments.map((comment) => {
         return (
-          <ul className="comments__list">
+          <ul className="comments__list" key={comment.id}>
             <li className="comments__item">
-              <img src="" alt="user avatar" className="comments__avatar" />
+              <img className="comments__avatar" />
               <div className="comments__info">
                 <div className="comments__top">
                   <h5 className="comments__name">{comment.name}</h5>

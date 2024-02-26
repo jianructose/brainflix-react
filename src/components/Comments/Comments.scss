@@ -67,6 +67,10 @@
   }
 
   &__avatar {
+    background-color: $mercury;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
   }
 
   &__top {
