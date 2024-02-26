@@ -56,8 +56,10 @@
     color: $bf-black;
     font-size: 1rem;
 
-    &:active {
+    // active state
+    &:focus {
       border: 2px solid $bf-blue;
+      outline: none;
     }
 
     &:invalid {

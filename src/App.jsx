@@ -34,14 +34,14 @@ function App() {
           {/* comments component */}
           <Comments currVideo={currVideo} />
         </div>
-
-        {/* video list component */}
-        <SideVideos
-          className="main-info__side-videos"
-          sideVideos={videoList}
-          currVideo={currVideo}
-          handleVideoClick={handleVideoClick}
-        />
+        <div className="main-info__side-videos">
+          {/* video list component */}
+          <SideVideos
+            sideVideos={videoList}
+            currVideo={currVideo}
+            handleVideoClick={handleVideoClick}
+          />
+        </div>
       </div>
     </main>
   );

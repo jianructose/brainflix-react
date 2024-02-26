@@ -25,9 +25,13 @@ code {
   @include desktop {
     display: flex;
     flex-direction: row;
+    padding-left: 5rem;
   }
 
   &__side-videos {
-    flex-basis: calc(100% / 3);
+    @include desktop {
+      flex: 1;
+      padding-right: 2rem;
+    }
   }
 }

@@ -14,8 +14,6 @@ function Hero(props) {
         controls
         muted
         loop
-        buffer
-        scrubber
       >
         <source src={videoSrc} type="video/mp4" />{" "}
       </video>

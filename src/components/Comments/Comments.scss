@@ -1,25 +1,41 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
 
 .form {
   display: flex;
   flex-direction: row;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  @include desktop {
+    padding: 1rem 2rem;
+  }
 
   &__label {
+    color: $silver;
+    @include labelButtonText(1rem, 1.25rem, 600);
   }
   &__input-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     @include tablet {
-      flex-direction: row;
     }
   }
   &__avatar {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     object-fit: cover;
+    object-position: left;
+    margin-top: 1rem;
+
+    @include tablet {
+      width: 3rem;
+      height: 3rem;
+    }
   }
 
   &__input-top {
@@ -27,11 +43,45 @@
     flex-direction: column;
 
     @include tablet {
+      flex-direction: row;
+      gap: 1rem;
     }
   }
 
   &__input {
     border: 1px solid $bf-blue;
+    font-family: $font-primary;
+    height: 5rem;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    color: $bf-black;
+    background-color: $alabaster; // #f8f8f8
+    margin-bottom: 1.5rem;
+    overflow: hidden; // Hide the scrollbar
+    resize: none; // Disable the resize handle
+    border: 2px solid $mercury;
+
+    @include bodyText(1rem, 1.15rem, 400);
+
+    &::placeholder {
+      color: $bf-black;
+    }
+    // active state
+    &:focus {
+      border: 2px solid $bf-blue;
+      outline: none;
+    }
+
+    // error state
+    &:invalid {
+      border: 1px solid #d22d2d;
+    }
+
+    @include tablet {
+      height: 2.5rem;
+      padding: 0.5rem;
+    }
   }
 
   &__button {
@@ -50,11 +100,28 @@
     &:hover {
       background-color: $bf-dark-blue;
     }
+
+    @include tablet {
+      max-width: 9rem;
+    }
   }
 }
 
 .comments {
+  padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 3rem;
+  }
+
+  @include desktop {
+    padding: 0;
+    width: 100%;
+  }
+
   &__count {
+    padding-bottom: 1rem;
+    @include bodyText(1rem, 1.15rem, 600);
   }
 
   &__list {
@@ -64,18 +131,48 @@
   &__item {
     display: flex;
     flex-direction: row;
+    padding: 1rem 0;
+
+    @include desktop {
+      padding: 1rem 2rem;
+    }
   }
 
   &__avatar {
     background-color: $mercury;
     border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+
+    @include tablet {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   &__top {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+  }
+
+  &__name {
+    @include bodyText(1rem, 1.15rem, 600);
+  }
+
+  &__date {
+    color: $silver;
+  }
+
+  &__comment {
+    @include bodyText(1rem, 1.15rem, 400);
   }
 }

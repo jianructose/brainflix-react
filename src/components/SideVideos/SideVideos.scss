@@ -6,17 +6,17 @@
   padding: 1rem;
 
   @include tablet {
-    padding: 0 3rem;
+    padding: 2rem 3rem;
   }
 
   @include desktop {
     border-left: 1px solid $mercury;
-    padding: 2rem 10rem 2rem 2rem;
+    padding: 2rem 0 0 2rem;
   }
 
   &__list {
     @include desktop {
-      padding-right: 2rem;
+      // padding-right: 2rem;
     }
   }
   &__title {
@@ -32,6 +32,8 @@
     gap: 1rem;
 
     @include desktop {
+      width: 20rem;
+      margin-bottom: 2rem;
     }
   }
 
@@ -53,7 +55,6 @@
     @include bodyText(1rem, 1.2rem, 600);
 
     @include desktop {
-      padding-right: 2rem;
     }
   }
 }

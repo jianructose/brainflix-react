@@ -18,20 +18,20 @@ function Comments(props) {
         <img src={userAvatar} alt="user avatar" className="form__avatar" />
 
         <div className="form__input-container">
+          {/* form label */}
+          <label htmlFor="comment" className="form__label">
+            JOIN THE CONVERSATION
+          </label>
           <div className="form__input-top">
-            {/* form label */}
-            <label htmlFor="comment" className="form__label">
-              JOIN THE CONVERSATION
-            </label>
             {/* form input */}
             <textarea
               className="form__input"
               placeholder="Add a new comment"
             ></textarea>
-          </div>
 
-          {/* form button */}
-          <button className="form__button">COMMENT</button>
+            {/* form button */}
+            <button className="form__button">COMMENT</button>
+          </div>
         </div>
       </form>
 

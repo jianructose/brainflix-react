@@ -11,7 +11,7 @@
   }
 
   @include desktop {
-    padding: 2rem 5rem;
+    padding: 2rem 0;
   }
 
   &__title {
@@ -21,6 +21,10 @@
 
     @include tablet {
       @include videoHeader(2.5rem, 2.75rem, 700);
+    }
+
+    @include desktop {
+      padding-right: 2rem;
     }
   }
 
@@ -37,7 +41,8 @@
     padding: 1rem 0;
     gap: 2rem;
 
-    @include tablet {
+    @include desktop {
+      padding-right: 2rem;
     }
   }
   &__info,
@@ -75,8 +80,12 @@
   }
 
   &__description {
-    padding: 1rem 0;
+    padding-top: 1rem;
 
-    @include bodyText(1.15rem, 1.5rem, 400);
+    @include bodyText(1rem, 1.5rem, 400);
+
+    @include desktop {
+      padding-right: 2rem;
+    }
   }
 }
