@@ -1,26 +1,85 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
 .nav {
   display: flex;
   flex-direction: column;
-  padding: 1rem 0;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem 0;
+
+  @include tablet {
+    flex-direction: row;
+    padding: 1rem 3rem 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @include desktop {
+    padding: 1rem 10rem 0;
+  }
 
   &__logo {
-    width: 10rem;
+    max-width: 10rem;
+    height: 2rem;
   }
 
   &__search {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+    width: 100%;
+
+    @include tablet {
+      align-items: center;
+      justify-content: end;
+    }
   }
 
   &__search-box {
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    background-image: url("../../assets/icons/search.svg");
+    background-repeat: no-repeat;
+    background-position: left 0.5rem center;
+    border-radius: 0.25rem;
+    background-color: $alabaster;
+    border: 1px solid $mercury;
+    width: 100%;
+    min-height: 3rem;
+    flex: 1 calc(100% / 3);
+    order: 1;
+    font-family: $font-primary;
+    color: $bf-black;
+    font-size: 1rem;
+
+    &:active {
+      border: 2px solid $bf-blue;
+    }
+
+    &:invalid {
+      border: 1px solid #d22d2d;
+    }
+
+    @include tablet {
+      flex: 0 calc(100% / 4);
+      order: 1;
+    }
   }
 
   &__user-avatar {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+    object-fit: cover;
+    order: 2;
+
+    @include tablet {
+      order: 3;
+    }
   }
 
   &__upload-button {
@@ -28,15 +87,25 @@
     color: $white;
     background-image: url("../../assets/icons/upload.svg");
     background-repeat: no-repeat;
-    height: 2rem;
+    height: 3rem;
+    width: 100%;
     border: none; // Remove border
     padding: 0.5rem 1rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0.25rem;
     background-position: left 0.5rem center;
+    order: 3;
+
+    @include labelButtonText(1rem, 1.25rem, 500);
 
     &:hover {
       background-color: $bf-dark-blue;
+    }
+
+    @include tablet {
+      max-width: 10rem;
+      order: 2;
+      padding: 0 3rem;
     }
   }
 }

@@ -15,3 +15,20 @@
     @content;
   }
 }
+
+@mixin labelButtonText(
+  $textSize: 0.625rem,
+  $lineHeight: 1.25rem,
+  $fontWeight: 700
+) {
+  font-size: $textSize;
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
+
+
+@mixin bodyText ($textSize: 0.85rem, $lineHeight: 1.15rem, $fontWeight: 400) {
+  font-size: $textSize;
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
