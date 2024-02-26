@@ -21,6 +21,12 @@ function SideVideos(props) {
                   props.handleVideoClick(video.id);
                 }}
               >
+                {/* <video
+                  poster={video.image}
+                  controls
+                  className="side-videos__thumbnail"
+                ></video> */}
+
                 <img
                   src={video.image}
                   alt="video thumbnail"

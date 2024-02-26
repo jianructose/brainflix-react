@@ -1,8 +1,28 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
 .side-videos {
-  &__title {
+  padding: 1rem;
+
+  @include tablet {
+    padding: 0 3rem;
+  }
+
+  @include desktop {
+    border-left: 1px solid $mercury;
+    padding: 2rem 10rem 2rem 2rem;
   }
 
   &__list {
+    @include desktop {
+      padding-right: 2rem;
+    }
+  }
+  &__title {
+    color: $silver;
+    padding-bottom: 1rem;
+    @include bodyText(1rem, 1.5rem, 600);
   }
 
   &__item {
@@ -10,11 +30,17 @@
     flex-direction: row;
     margin-bottom: 1rem;
     gap: 1rem;
+
+    @include desktop {
+    }
   }
 
   &__thumbnail {
     width: 8rem;
-    border-radius: 10%;
+    height: 4.5rem;
+    border-radius: 0.25rem;
+    background-color: $mercury;
+    object-fit: cover;
   }
 
   &__info {
@@ -24,8 +50,10 @@
   }
 
   &__info-title {
-  }
+    @include bodyText(1rem, 1.2rem, 600);
 
-  &__info-channel {
+    @include desktop {
+      padding-right: 2rem;
+    }
   }
 }

@@ -17,9 +17,17 @@ code {
     monospace;
 }
 
-.App {
-}
-
 .divider {
   border-bottom: 1px solid $mercury;
+}
+
+.main-info {
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__side-videos {
+    flex-basis: calc(100% / 3);
+  }
 }

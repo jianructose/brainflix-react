@@ -26,18 +26,23 @@ function App() {
       {/* hero component */}
       <Hero currVideo={currVideo} />
 
-      {/* main video info component */}
-      <CurrVideo currVideo={currVideo} />
+      <div className="main-info">
+        <div className="main-info__curr-video">
+          {/* main video info component */}
+          <CurrVideo currVideo={currVideo} />
 
-      {/* comments component */}
-      <Comments currVideo={currVideo} />
+          {/* comments component */}
+          <Comments currVideo={currVideo} />
+        </div>
 
-      {/* video list component */}
-      <SideVideos
-        sideVideos={videoList}
-        currVideo={currVideo}
-        handleVideoClick={handleVideoClick}
-      />
+        {/* video list component */}
+        <SideVideos
+          className="main-info__side-videos"
+          sideVideos={videoList}
+          currVideo={currVideo}
+          handleVideoClick={handleVideoClick}
+        />
+      </div>
     </main>
   );
 }
