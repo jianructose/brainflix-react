@@ -2,7 +2,19 @@
 @use "../../styles/partials/variables" as *;
 
 .hero {
+  background-color: rgba($bf-dark-black, 1);
+
+  @include tablet {
+    padding: 0 3rem;
+    text-align: center;
+  }
   &__video {
     width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+
+    @include desktop {
+      width: 75%;
+    }
   }
 }
