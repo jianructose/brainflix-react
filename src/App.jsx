@@ -15,6 +15,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/videos/:id" element={<HomePage />} />
+        {/* upload page */}
+        <Route path="/upload" element={<h1>Upload</h1>} />
+        <Route path="/*" element={<h1>Not Found</h1>} />
       </Routes>
     </Router>
   );
