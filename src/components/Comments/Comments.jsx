@@ -1,16 +1,41 @@
 import "./Comments.scss";
 import userAvatar from "../../assets/images/Mohan-muruge.jpg";
 import { formatDistanceToNow } from "date-fns";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-function Comments(props) {
-  // length of comments
+function Comments({ currVideo }) {
+  const url = `https://project-2-api.herokuapp.com`;
+  // Define the API key
+  const apiKey = "87db0f55-c275-4878-a7ad-6eb00d9a5c17";
+
+  const [comments, setComments] = useState([]);
+
+  // async function to fetch comments
+  const fetchComments = async () => {
+    try {
+      const response = await axios.get(
+        `${url}/videos/${currVideo.id}?api_key=${apiKey}`
+      ); // https://project-2-api.herokuapp.com/videos/:videoId/comments
+
+      // set the initial comments list as the response data
+      setComments(response.data.comments);
+    } catch (error) {
+      console.log("There was an error fetching comments", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchComments();
+  }, []);
+
   return (
     // comments section
     <section className="comments">
       {/* comments count */}
       <h4 className="comments__count">
-        {props.currVideo.comments.length} Comment
-        {props.currVideo.comments.length > 1 ? "s" : ""}
+        {currVideo.comments.length} Comment
+        {currVideo.comments.length > 1 ? "s" : ""}
       </h4>
 
       <form className="form">
@@ -40,7 +65,7 @@ function Comments(props) {
 
       {/* display comments list */}
 
-      {props.currVideo.comments.map((comment) => {
+      {currVideo.comments.map((comment) => {
         return (
           <ul className="comments__list" key={comment.id}>
             <li className="comments__item">

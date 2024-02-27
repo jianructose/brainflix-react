@@ -2,12 +2,6 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-// import Hero from "./components/Hero/Hero";
-// import CurrVideo from "./components/CurrVideo/CurrVideo";
-// import Comments from "./components/Comments/Comments";
-// import SideVideos from "./components/SideVideos/SideVideos";
-// import { useState } from "react";
-// import videoData from "./data/video-details.json";
 
 function App() {
   return (

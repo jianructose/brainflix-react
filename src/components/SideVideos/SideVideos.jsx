@@ -1,4 +1,5 @@
 import "./SideVideos.scss";
+import { Link } from "react-router-dom";
 
 function SideVideos(props) {
   console.log("sideVideos", props.sideVideos);
