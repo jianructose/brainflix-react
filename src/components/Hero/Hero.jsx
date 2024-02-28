@@ -1,9 +1,9 @@
 import "./Hero.scss";
 
 // Define the API key
-const apiKey = "87db0f55-c275-4878-a7ad-6eb00d9a5c17";
+// const apiKey = "87db0f55-c275-4878-a7ad-6eb00d9a5c17";
 
-function Hero({ currVideo }) {
+function Hero({ currVideo, apiKey }) {
   const videoSrc = `${currVideo.video}?api_key=${apiKey}`;
 
   return (

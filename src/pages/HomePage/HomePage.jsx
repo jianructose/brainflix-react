@@ -5,7 +5,7 @@ import Comments from "../../components/Comments/Comments";
 import SideVideos from "../../components/SideVideos/SideVideos";
 import { useState, useEffect } from "react";
 // import videoData from "../../data/video-details.json";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function HomePage() {
@@ -17,16 +17,30 @@ function HomePage() {
 
   const [videoList, setVideoList] = useState(null);
 
+  const { id } = useParams(); // to get the video id from the url
+
   // async function to fetch videoData
   const fetchVideoData = async () => {
     try {
       const response = await axios.get(`${url}/videos?api_key=${apiKey}`);
+
       const videoData = response.data;
       // set the initial video list as the response data
       setVideoList(videoData);
-      setCurrVideo(videoData[0]);
     } catch (error) {
       console.log("Sorry, there was an error fetching videoData", error);
+    }
+  };
+
+  // async function to fetch video details by video id
+  const fetchVideoDetails = async (id) => {
+    try {
+      const response = await axios.get(`${url}/videos/${id}?api_key=${apiKey}`);
+      const videoDetails = response.data;
+      // assign the video details to currVideo
+      setCurrVideo(videoDetails);
+    } catch (error) {
+      console.log("Sorry, there was an error fetching video details", error);
     }
   };
 
@@ -35,24 +49,36 @@ function HomePage() {
     setCurrVideo(newCurrVideo);
   }
 
+  // useEffect to fetch videoData once the component mounts
   useEffect(() => {
     fetchVideoData();
   }, []);
-  console.log("currVideo", currVideo);
+
+  // make id equals to the first video id if it's not provided
+  useEffect(() => {
+    if (!id && videoList) {
+      // id as the first video id
+      fetchVideoDetails(videoList[0].id);
+    } else if (id && videoList) {
+      fetchVideoDetails(id);
+    } else {
+      console.log("Sorry, there was an error fetching video details");
+    }
+  }, [videoList, id]);
 
   return (
     <main className="App">
       {/* hero component, need to wait for currVideo to be fetched */}
-      {currVideo && <Hero currVideo={currVideo} />}
+      {currVideo && <Hero currVideo={currVideo} apiKey={apiKey} />}
 
       {/* header component */}
       <div className="main-info">
         <div className="main-info__curr-video">
           {/* main video info component */}
-          {/* {currVideo && <CurrVideo currVideo={currVideo} />} */}
+          {currVideo && <CurrVideo currVideo={currVideo} />}
 
           {/* comments component */}
-          {/* {currVideo && <Comments currVideo={currVideo} />} */}
+          {currVideo && <Comments currVideo={currVideo} />}
         </div>
         <div className="main-info__side-videos">
           {/* video list component */}

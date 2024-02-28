@@ -1,8 +1,8 @@
 import "./SideVideos.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SideVideos(props) {
-  console.log("sideVideos", props.sideVideos);
+  // console.log("sideVideos", props.sideVideos);
 
   return (
     <section className="side-videos">
@@ -14,20 +14,11 @@ function SideVideos(props) {
           .filter((video) => video.id !== props.currVideo.id)
           .map((video) => {
             return (
-              // add an onClick event to list item to call handleVideoClick function
-              <li
-                className="side-videos__item"
+              <Link
+                className="side-videos__link"
                 key={video.id}
-                onClick={() => {
-                  props.handleVideoClick(video.id);
-                }}
+                to={`/videos/${video.id}`}
               >
-                {/* <video
-                  poster={video.image}
-                  controls
-                  className="side-videos__thumbnail"
-                ></video> */}
-
                 <img
                   src={video.image}
                   alt="video thumbnail"
@@ -37,7 +28,7 @@ function SideVideos(props) {
                   <h5 className="side-videos__info-title">{video.title}</h5>
                   <p className="side-videos__info-channel"> {video.channel}</p>
                 </div>
-              </li>
+              </Link>
             );
           })}
       </ul>
