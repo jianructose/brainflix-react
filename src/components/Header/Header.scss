@@ -97,8 +97,13 @@
     border-radius: 0.25rem;
     background-position: left 0.5rem center;
     order: 3;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-primary;
 
-    @include labelButtonText(1rem, 1.25rem, 500);
+    @include labelButtonText(1rem, 1.25rem, 600);
 
     &:hover {
       background-color: $bf-dark-blue;

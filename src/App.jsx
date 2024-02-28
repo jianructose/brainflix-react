@@ -2,6 +2,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
+import UploadPage from "./pages/UploadPage/UploadPage";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/videos/:id" element={<HomePage />} />
         {/* upload page */}
-        <Route path="/upload" element={<h1>Upload</h1>} />
+        <Route path="/upload" element={<UploadPage />} />
         <Route path="/*" element={<h1>Not Found</h1>} />
       </Routes>
     </Router>

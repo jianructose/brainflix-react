@@ -28,22 +28,24 @@
   &__link {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1rem;
+    padding: 0.5rem 0;
     gap: 1rem;
     text-decoration: none;
     color: $bf-black;
-    // add overlay to image
-    filter: brightness(0.8);
+    transition: color background-color 0.3s ease-in-out;
 
     &:hover {
-      filter: brightness(1);
       color: $bf-blue;
-      transition: filter color 0.3s ease-in-out;
+      background-color: $mercury;
+      // only top and bottom border
+      border-top: 2px solid $silver;
+      border-bottom: 2px solid $silver;
+      // transition: color background-color 0.3s ease-in-out;
     }
 
     @include desktop {
       width: 20rem;
-      margin-bottom: 2rem;
+      padding: 1.5rem 0;
     }
   }
 
@@ -52,8 +54,15 @@
     height: 4.5rem;
     border-radius: 0.25rem;
     object-fit: cover;
+    transition: transform 0.3s ease-in-out;
 
     &:hover {
+      opacity: 0.9;
+    }
+
+    @include desktop {
+      width: 10rem;
+      height: 5.5rem;
     }
   }
 
