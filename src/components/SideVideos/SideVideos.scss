@@ -32,6 +32,8 @@
     gap: 1rem;
     text-decoration: none;
     color: $bf-black;
+    border-top: 2px solid $white;
+    border-bottom: 2px solid $white;
     transition: color background-color 0.3s ease-in-out;
 
     &:hover {

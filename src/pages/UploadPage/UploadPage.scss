@@ -1,0 +1,51 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.upload {
+  &__title {
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+    }
+  }
+
+  &__top {
+  }
+
+  &__label {
+    color: $silver;
+
+    @include bodyText(1rem, 1.5rem, 600);
+  }
+
+  &__thumbnail {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input-title {
+  }
+
+  &__input-description {
+  }
+
+  &__button-container {
+  }
+
+  &__button-publish {
+  }
+
+  &__button-cancel {
+  }
+}
