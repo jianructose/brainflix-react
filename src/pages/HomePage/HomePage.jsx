@@ -62,7 +62,9 @@ function HomePage() {
     } else if (id && videoList) {
       fetchVideoDetails(id);
     } else {
-      console.log("Sorry, there was an error fetching video details");
+      console.log(
+        "Sorry, there was an error or a wrinkle fetching video details"
+      );
     }
   }, [videoList, id]);
 
