@@ -19,7 +19,7 @@
     @include tablet {
       display: block;
       border-bottom: 1px solid $mercury;
-      margin-bottom: 1rem;
+      margin: 1rem 0; 
       width: 100%;
     }
   }
@@ -51,6 +51,7 @@
     @include desktop {
       width: calc(100% / 3);
       padding: 1rem 1rem 0 0;
+      flex: 1; 
     }
   }
 
@@ -86,6 +87,7 @@
     @include desktop {
       width: calc(100% * 2 / 3);
       padding-left: 1rem;
+      flex: 2; 
     }
   }
 
@@ -113,11 +115,10 @@
   }
 
   &__input-description {
-    height: 7rem; //
+    max-height: 7rem; //
     resize: none;
 
     @include desktop {
-      height: 5.25rem;
     }
   }
 

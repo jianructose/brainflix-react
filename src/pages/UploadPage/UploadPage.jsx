@@ -44,11 +44,11 @@ function Upload() {
             ></textarea>
           </form>
           <div className="upload__divider"></div>
+        </div>
           <div className="upload__button-container">
             <button className="upload__button-publish">PUBLISH</button>
             <button className="upload__button-cancel">CANCEL</button>
           </div>
-        </div>
       </section>
     </>
   );
