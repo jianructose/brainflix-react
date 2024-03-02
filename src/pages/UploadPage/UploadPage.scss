@@ -10,12 +10,17 @@
     margin: 0 3rem;
   }
 
+  @include desktop {
+    margin: 0 5rem;
+  }
+
   &__divider {
     display: none;
     @include tablet {
       display: block;
       border-bottom: 1px solid $mercury;
       margin-bottom: 1rem;
+      width: 100%;
     }
   }
   &__title {
@@ -33,6 +38,8 @@
 
     @include desktop {
       flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
   }
 
@@ -43,7 +50,7 @@
 
     @include desktop {
       width: calc(100% / 3);
-      padding-right: 1rem;
+      padding: 1rem 1rem 0 0;
     }
   }
 
@@ -61,12 +68,25 @@
     @include tablet {
       width: 50%;
     }
+
+    @include desktop {
+      width: 100%;
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
+
+    @include tablet {
+      padding-bottom: 0;
+    }
+
+    @include desktop {
+      width: calc(100% * 2 / 3);
+      padding-left: 1rem;
+    }
   }
 
   &__input-title,
@@ -95,11 +115,21 @@
   &__input-description {
     height: 7rem; //
     resize: none;
+
+    @include desktop {
+      height: 5.25rem;
+    }
   }
 
   &__button-container {
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: end;
+    }
   }
 
   &__button-publish,
@@ -119,6 +149,16 @@
 
     @include labelButtonText(0.85rem, 1.25rem, 500);
 
+    @include tablet {
+      width: 10rem; // 160px
+      margin-bottom: 0;
+    }
+  }
+
+  &__button-publish {
+    @include tablet {
+      order: 2;
+    }
     &:hover {
       background-color: $bf-dark-blue;
     }
@@ -128,5 +168,10 @@
     background-color: $white;
     color: $bf-blue;
     background-image: none;
+
+    // move to left of publish button when tablet
+    @include tablet {
+      order: 1;
+    }
   }
 }
