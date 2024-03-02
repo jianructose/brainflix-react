@@ -3,7 +3,28 @@
 @use "../../styles/partials/variables" as *;
 
 .upload {
+  margin: 0 1rem;
+  padding-bottom: 3rem;
+
+  @include tablet {
+    margin: 0 3rem;
+  }
+
+  &__divider {
+    display: none;
+    @include tablet {
+      display: block;
+      border-bottom: 1px solid $mercury;
+      margin-bottom: 1rem;
+    }
+  }
   &__title {
+    @include videoHeader(2.1rem, 2.75rem, 700);
+    padding: 2rem 0;
+
+    @include tablet {
+      padding: 1rem 0;
+    }
   }
 
   &__container {
@@ -16,36 +37,96 @@
   }
 
   &__top {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include desktop {
+      width: calc(100% / 3);
+      padding-right: 1rem;
+    }
   }
 
   &__label {
     color: $silver;
-
+    padding-bottom: 0.25rem; // 4px
     @include bodyText(1rem, 1.5rem, 600);
   }
 
   &__thumbnail {
     width: 100%;
     aspect-ratio: 16/9;
+    background-color: $mercury;
+
+    @include tablet {
+      width: 50%;
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
+    padding: 1rem 0;
   }
 
-  &__input-title {
+  &__input-title,
+  &__input-description {
+    padding: 0.75rem; // 12px
+    margin-bottom: 1rem;
+    @include bodyText(1rem, 1.5rem, 400);
+    color: $bf-black;
+    font-family: $font-primary;
+    border: 1px solid $mercury;
+    border-radius: 0.25rem; // 4px
+    background-color: $alabaster;
+
+    // active state
+    &:focus {
+      border: 2px solid $bf-blue;
+      outline: none; // to remove the default focus border
+    }
+
+    // error state
+    &:invalid {
+      border: 1px solid #d22d2d;
+    }
   }
 
   &__input-description {
+    height: 7rem; //
+    resize: none;
   }
 
   &__button-container {
+    display: flex;
+    flex-direction: column;
   }
 
-  &__button-publish {
+  &__button-publish,
+  &__button-cancel {
+    background-color: $bf-blue;
+    color: $white;
+    height: 2.5rem; // 40px
+    width: 100%;
+    border: none; // Remove border
+    padding: 0.5rem 1rem; // 8px 16px
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-image: url("../../assets/icons/publish.svg");
+    background-repeat: no-repeat;
+    background-position: left 0.5rem center;
+    margin-bottom: 1rem;
+
+    @include labelButtonText(0.85rem, 1.25rem, 500);
+
+    &:hover {
+      background-color: $bf-dark-blue;
+    }
   }
 
   &__button-cancel {
+    background-color: $white;
+    color: $bf-blue;
+    background-image: none;
   }
 }
