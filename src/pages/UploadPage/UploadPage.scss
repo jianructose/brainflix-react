@@ -19,7 +19,7 @@
     @include tablet {
       display: block;
       border-bottom: 1px solid $mercury;
-      margin: 1rem 0; 
+      margin: 1rem 0;
       width: 100%;
     }
   }
@@ -51,7 +51,7 @@
     @include desktop {
       width: calc(100% / 3);
       padding: 1rem 1rem 0 0;
-      flex: 1; 
+      flex: 1;
     }
   }
 
@@ -75,7 +75,7 @@
     }
   }
 
-  &__form {
+  &__form-container {
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
@@ -87,7 +87,7 @@
     @include desktop {
       width: calc(100% * 2 / 3);
       padding-left: 1rem;
-      flex: 2; 
+      flex: 2;
     }
   }
 

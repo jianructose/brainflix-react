@@ -71,25 +71,31 @@ function HomePage() {
   return (
     <main className="App">
       {/* hero component, need to wait for currVideo to be fetched */}
-      {currVideo && <Hero currVideo={currVideo} apiKey={apiKey} />}
+      {currVideo ? (
+        <Hero currVideo={currVideo} apiKey={apiKey} />
+      ) : (
+        <p>Loading...</p>
+      )}
 
       {/* header component */}
       <div className="main-info">
         <div className="main-info__curr-video">
           {/* main video info component */}
-          {currVideo && <CurrVideo currVideo={currVideo} />}
+          {currVideo ? <CurrVideo currVideo={currVideo} /> : <p>Loading...</p>}
 
           {/* comments component */}
-          {currVideo && <Comments currVideo={currVideo} />}
+          {currVideo ? <Comments currVideo={currVideo} /> : <p>Loading...</p>}
         </div>
         <div className="main-info__side-videos">
           {/* video list component */}
-          {currVideo && (
+          {currVideo ? (
             <SideVideos
               sideVideos={videoList}
               currVideo={currVideo}
               handleVideoClick={handleVideoClick}
             />
+          ) : (
+            <p>Loading...</p>
           )}
         </div>
       </div>
