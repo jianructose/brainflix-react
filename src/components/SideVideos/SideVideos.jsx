@@ -1,7 +1,7 @@
 import "./SideVideos.scss";
 import { Link, useNavigate } from "react-router-dom";
 
-function SideVideos(props) {
+function SideVideos({ currVideo, sideVideos }) {
   // console.log("sideVideos", props.sideVideos);
 
   return (
@@ -10,8 +10,8 @@ function SideVideos(props) {
 
       <ul className="side-videos__list">
         {/* map through the sideVideos prop and render a list item for each video */}
-        {props.sideVideos
-          .filter((video) => video.id !== props.currVideo.id)
+        {sideVideos
+          .filter((video) => video.id !== currVideo.id)
           .map((video) => {
             return (
               <Link

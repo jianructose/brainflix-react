@@ -4,6 +4,7 @@ import likeIcon from "../../assets/icons/likes.svg";
 import deleteIcon from "../../assets/icons/delete.svg";
 import { formatDistanceToNow, set } from "date-fns";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Comments({ currVideo }) {
@@ -13,6 +14,7 @@ function Comments({ currVideo }) {
 
   const [comments, setComments] = useState([]);
   const [commentPosted, setCommentPosted] = useState(false);
+  const navigate = useNavigate();
 
   // async function to fetch comments
   const fetchComments = async () => {
@@ -47,6 +49,8 @@ function Comments({ currVideo }) {
       console.log("There was an error posting the comment", error);
     }
 
+    // refresh the comment list
+
     e.target.comment.value = "";
   };
 
@@ -56,12 +60,13 @@ function Comments({ currVideo }) {
       await axios.delete(
         `${url}/videos/${currVideo.id}/comments/${commentId}?api_key=${apiKey}`
       );
-      console.log(`Comment from ${commentId} has been deleted successfully`);
+      // console.log(`Comment from ${commentId} has been deleted successfully`);
 
       // refetch comments
-      fetchComments();
+      await fetchComments();
+      navigate(`/videos/${currVideo.id}`); // refresh the page
 
-      console.log("comments after delete", comments);
+      // console.log("comments after delete", comments);
 
       // setComments(comments.filter((comment) => comment.id !== commentId));
     } catch (error) {
@@ -75,12 +80,13 @@ function Comments({ currVideo }) {
   }, []);
 
   // useEffect to refetch comments after a comment has been posted
-  useEffect(() => {
-    if (commentPosted) {
-      fetchComments();
-      setCommentPosted(false);
-    }
-  }, [commentPosted]);
+  // useEffect(() => {
+  //   if (commentPosted) {
+  //     fetchComments();
+  //     navigate(`/videos/${currVideo.id}`);
+  //     setCommentPosted(false);
+  //   }
+  // }, [commentPosted]);
 
   return (
     // comments section
@@ -128,39 +134,41 @@ function Comments({ currVideo }) {
 
       {/* display comments list */}
 
-      {currVideo.comments.map((comment) => {
-        return (
-          <ul className="comments__list" key={comment.id}>
-            <li className="comments__item">
-              <img className="comments__avatar" />
-              <div className="comments__info">
-                <div className="comments__top">
-                  <h5 className="comments__name">{comment.name}</h5>
-                  <p className="comments__date">
-                    {/* format timestamp */}
-                    {formatDistanceToNow(new Date(comment.timestamp), {
-                      addSuffix: true,
-                    })}{" "}
-                  </p>
+      {currVideo.comments
+        .filter((comment) => comment.id !== null)
+        .map((comment) => {
+          return (
+            <ul className="comments__list" key={comment.id}>
+              <li className="comments__item">
+                <img className="comments__avatar" />
+                <div className="comments__info">
+                  <div className="comments__top">
+                    <h5 className="comments__name">{comment.name}</h5>
+                    <p className="comments__date">
+                      {/* format timestamp */}
+                      {formatDistanceToNow(new Date(comment.timestamp), {
+                        addSuffix: true,
+                      })}{" "}
+                    </p>
+                  </div>
+                  {/* comment text*/}
+                  <p className="comments__text">{comment.comment}</p>
+                  <div className="comments__buttons">
+                    <img src={likeIcon} alt="like icon" />
+                    <p className="comments__like-count">{comment.likes}</p>
+                    <img
+                      src={deleteIcon}
+                      alt="delete icon"
+                      onClick={() => deleteComment(comment.id)}
+                    />
+                  </div>
                 </div>
-                {/* comment text*/}
-                <p className="comments__text">{comment.comment}</p>
-                <div className="comments__buttons">
-                  <img src={likeIcon} alt="like icon" />
-                  <p className="comments__like-count">{comment.likes}</p>
-                  <img
-                    src={deleteIcon}
-                    alt="delete icon"
-                    // onClick={() => deleteComment(comment.id)}
-                  />
-                </div>
-              </div>
-              {/* add like and delete button with icon */}
-            </li>
-            <div className="divider"></div>
-          </ul>
-        );
-      })}
+                {/* add like and delete button with icon */}
+              </li>
+              <div className="divider"></div>
+            </ul>
+          );
+        })}
     </section>
   );
 }
