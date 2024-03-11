@@ -10,8 +10,6 @@ import axios from "axios";
 
 function HomePage() {
   const url = `http://localhost:8080`;
-  // Define the API key
-  // const apiKey = "87db0f55-c275-4878-a7ad-6eb00d9a5c17";
 
   const [currVideo, setCurrVideo] = useState(null);
 
@@ -43,11 +41,6 @@ function HomePage() {
       console.log("Sorry, there was an error fetching video details", error);
     }
   };
-
-  function handleVideoClick(id) {
-    const newCurrVideo = videoList.find((video) => video.id === id);
-    setCurrVideo(newCurrVideo);
-  }
 
   // useEffect to fetch videoData once the component mounts
   useEffect(() => {
@@ -85,11 +78,7 @@ function HomePage() {
         <div className="main-info__side-videos">
           {/* video list component */}
           {currVideo ? (
-            <SideVideos
-              sideVideos={videoList}
-              currVideo={currVideo}
-              handleVideoClick={handleVideoClick}
-            />
+            <SideVideos sideVideos={videoList} currVideo={currVideo} />
           ) : (
             <p>Loading...</p>
           )}

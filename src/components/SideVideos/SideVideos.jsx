@@ -10,6 +10,7 @@ function SideVideos({ currVideo, sideVideos }) {
 
       <ul className="side-videos__list">
         {/* map through the sideVideos prop and render a list item for each video */}
+
         {sideVideos
           .filter((video) => video.id !== currVideo.id)
           .map((video) => {

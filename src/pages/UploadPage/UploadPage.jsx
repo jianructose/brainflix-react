@@ -1,3 +1,4 @@
+import axios from "axios";
 import video_thumbnail from "../../assets/images/Upload-video-preview.jpg";
 import "./UploadPage.scss";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +8,14 @@ function Upload() {
 
   const handlePublish = (e) => {
     e.preventDefault();
+
+    const newVideo = {
+      title: e.target.videoTitle.value,
+      description: e.target.videoDescription.value,
+    };
+
+    const response = axios.post("http://localhost:8080/videos", newVideo);
+
     alert(
       "Congrats! Your video has been uploaded successfully ✌️,and you will be redirected to the home page."
     );
@@ -61,7 +70,11 @@ function Upload() {
             <button className="upload__button-publish" type="submit">
               PUBLISH
             </button>
-            <button className="upload__button-cancel" type="button">
+            <button
+              className="upload__button-cancel"
+              type="button"
+              onClick={() => navigate("/")}
+            >
               CANCEL
             </button>
           </div>
