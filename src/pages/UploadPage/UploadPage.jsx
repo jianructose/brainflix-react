@@ -2,12 +2,29 @@ import axios from "axios";
 import video_thumbnail from "../../assets/images/Upload-video-preview.jpg";
 import "./UploadPage.scss";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 function Upload() {
   const navigate = useNavigate();
+  const formRef = useRef();
+
+  // require the user to fill in the form before submitting
+  const formValidation = () => {
+    const form = formRef.current;
+    const title = form.videoTitle.value;
+    const description = form.videoDescription.value;
+
+    if (title === "" || description === "") {
+      alert("Please fill in the form before submitting");
+      return false;
+    }
+    return true;
+  };
 
   const handlePublish = (e) => {
     e.preventDefault();
+
+    if (!formValidation()) return;
 
     const newVideo = {
       title: e.target.videoTitle.value,
@@ -28,7 +45,7 @@ function Upload() {
       <section className="upload">
         <h1 className="upload__title">Upload Video</h1>
         <div className="upload__divider"></div>
-        <form className="upload__form" onSubmit={handlePublish}>
+        <form className="upload__form" onSubmit={handlePublish} ref={formRef}>
           <div className="upload__container">
             {/* video thumbnail */}
             <div className="upload__top">

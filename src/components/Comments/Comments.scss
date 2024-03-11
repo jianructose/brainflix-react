@@ -180,8 +180,25 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    align-items: flex-end;
   }
 
-  &__button-like {
+  &__like,
+  &__delete {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.2s;
+    }
+  }
+
+  &__like-count {
+    color: $silver;
+
+    display: flex;
+    align-items: flex-end;
   }
 }

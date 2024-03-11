@@ -11,7 +11,7 @@
   }
 
   @include desktop {
-    margin: 0 5rem;
+    margin: 0 10rem;
   }
 
   &__divider {
@@ -72,6 +72,7 @@
 
     @include desktop {
       width: 100%;
+      max-width: 23rem;
     }
   }
 
@@ -85,9 +86,10 @@
     }
 
     @include desktop {
-      width: calc(100% * 2 / 3);
+      width: 100%;
+      // calc(100% * 2 / 3);
       padding-left: 1rem;
-      flex: 2;
+      flex: 3;
     }
   }
 
