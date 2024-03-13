@@ -9,9 +9,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function HomePage() {
-  const url = `https://unit-3-project-api-0a5620414506.herokuapp.com`;
+  const url = `https://localhost:8080`;
+  // const url = `https://glowing-broccoli-6w7q7xjx7j9f4qw9-8080.app.github.dev`
   // Define the API key
-  const apiKey = "87db0f55-c275-4878-a7ad-6eb00d9a5c17";
+  // const apiKey = "87db0f55-c275-4878-a7ad-6eb00d9a5c17";
 
   const [currVideo, setCurrVideo] = useState(null);
 
@@ -22,7 +23,7 @@ function HomePage() {
   // async function to fetch videoData
   const fetchVideoData = async () => {
     try {
-      const response = await axios.get(`${url}/videos?api_key=${apiKey}`);
+      const response = await axios.get(`${url}/videos`);
 
       const videoData = response.data;
       // set the initial video list as the response data
@@ -35,7 +36,7 @@ function HomePage() {
   // async function to fetch video details by video id
   const fetchVideoDetails = async (id) => {
     try {
-      const response = await axios.get(`${url}/videos/${id}?api_key=${apiKey}`);
+      const response = await axios.get(`${url}/videos/${id}`);
       const videoDetails = response.data;
       // assign the video details to currVideo
       setCurrVideo(videoDetails);
@@ -72,7 +73,7 @@ function HomePage() {
     <main className="App">
       {/* hero component, need to wait for currVideo to be fetched */}
       {currVideo ? (
-        <Hero currVideo={currVideo} apiKey={apiKey} />
+        <Hero currVideo={currVideo} />
       ) : (
         <p>Loading...</p>
       )}
